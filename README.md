@@ -3,11 +3,11 @@
 My template for audio programming on a nVIDIA Jetson Nano using PortAudio. 
 Uses CMAKE.
 Created for myself in order to keep record of an hour or so of research. But suggestions are welcome! 
-notice: the workflow could be messy, redundant or not efficient... But it works on a Jetson Nano and it should work anywhere else.
+notice: 
 
 Should works on C programs as well just create a new <code>main.c</code>. Works perfectly on CLion.
 ## Installantion and dependencies check
-Disclaimer: this method could not be the best one, but it works. Documentation on ALSA and portAudio is not always clear. 
+Disclaimer: the workflow could be messy, redundant or not efficient... But it works on a Jetson Nano and it should work anywhere else. So it's ok for now.
 ### ALSA
   1. Check if ALSA is installed on your system. If it isn't run <code>sudo apt install alsa-utils</code>
   2. Check if ALSA works typing <code>aplay -vv somefile.wav </code>
