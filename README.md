@@ -5,6 +5,7 @@ Uses CMAKE.
 Created for myself in order to keep record of an hour or so of research. But suggestions are welcome! 
 notice: the workflow could be messy, redundant or not efficient... But it works on a Jetson Nano and it should work anywhere else.
 
+Should works on C programs as well just create a new <code>main.c</code>. Works perfectly on CLion.
 ## Installantion and dependencies check
 Disclaimer: this method could not be the best one, but it works. Documentation on ALSA and portAudio is not always clear. 
 ### ALSA
