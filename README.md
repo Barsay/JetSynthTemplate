@@ -21,5 +21,7 @@ Disclaimer: this method could not be the best one, but it works. Documentation o
   Documentation for troubleshooting: <link>http://portaudio.com/docs/v19-doxydocs/compile_cmake.html</link>, <link>http://portaudio.com/docs/v19-doxydocs/compile_linux.html</link>
   General portaudio documentation  <link>http://portaudio.com/docs/v19-doxydocs/index.html</link>
   
-### USE IT:
-  clone this repo, test the main() just to see if it works, start coding.
+## USE IT:
+  1. Clone this repo
+  2. On line 2 in CMakeLists.txt change <code>-insert projectname here</code> with the name of your project
+  (otherise your project will be named "<code>-insert projectname here</code>", lol)

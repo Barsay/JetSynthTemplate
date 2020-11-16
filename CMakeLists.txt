@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 3.0)
-project(PortAudioTest1)
+cmake_minimum_required(VERSION 3.1)
+SET(PROJECTNAME insert-projectname-here)
 
+
+project(PROJECTNAME)
 set(CMAKE_CXX_STANDARD 14)
+add_executable(PROJECTNAME main.cpp)
 
-add_executable(PortAudioTest1 main.cpp)
-
+#PORTAUDIO FINDING:
 if (PORTAUDIO_LIBRARIES AND PORTAUDIO_INCLUDE_DIRS)
     # in cache already
     set(PORTAUDIO_FOUND TRUE)
@@ -96,4 +98,4 @@ else (PORTAUDIO_LIBRARIES AND PORTAUDIO_INCLUDE_DIRS)
 
 endif (PORTAUDIO_LIBRARIES AND PORTAUDIO_INCLUDE_DIRS)
 
-TARGET_LINK_LIBRARIES(PortAudioTest1 ${PORTAUDIO_LIBRARIES})
+TARGET_LINK_LIBRARIES(PROJECTNAME ${PORTAUDIO_LIBRARIES})
