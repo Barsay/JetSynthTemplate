@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="MichaelCuda (abad104d-0419-4c6a-a1ce-924756493e14)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="MichaelJetson (01aed3aa-01a6-4fa2-a7f6-eebfb98b27c8)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.6dey5N3oh3" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debugjetson" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="MyExample (936f15bd-694c-4180-8b7e-5010f4c4e501)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
