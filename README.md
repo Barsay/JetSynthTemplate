@@ -4,8 +4,8 @@ My template for audio programming on a nVIDIA Jetson Nano using PortAudio.
 Uses CMAKE.
 Created for myself in order to keep record of some hours of research, and I thought I could share this information with the world. Suggestions are very welcome! 
 notice: 
-
 Should works on C programs as well just create a new <code>main.c</code>. Works perfectly on CLion.
+
 ## Installantion and dependencies check
 Disclaimer: the workflow could be messy, redundant or not efficient... But it works on a Jetson Nano and it should work anywhere else. So it's ok for now.
 ### ALSA
@@ -25,7 +25,7 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
   Documentation for troubleshooting: <link>http://portaudio.com/docs/v19-doxydocs/compile_cmake.html</link>, <link>http://portaudio.com/docs/v19-doxydocs/compile_linux.html</link>
   General portaudio documentation  <link>http://portaudio.com/docs/v19-doxydocs/index.html</link></br>
   
-  ### Set default soundcard + some info about NANO audio devices
+  ### Set default soundcard in ALSA + some info about NANO audio devices
   If the following direcotires or files don't appear, you have a problem with your ALSA installation.
   1. type <code>cd /proc/asound</code>. The <code>cards</code> file contains informations about the soundcards that can be used by ALSA.
   2. type <code>cat cards</code> You will see all the devices that can be used. 
@@ -34,8 +34,8 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
       <code>[tegrasndt210ref]</code> witch should be the device connected with I2S system (not sure about that....).</br>
       #### Enable a USB plug-and-play audio device, and understanding how soundcards are wired in the Nano </br>
       WARNING: I messed up my asound.conf file doing this. When asound.conf doesn't work, ALSA doesn't work. I am currently trying to find a way to restore the files.
-    If you are using an USB pug-and-play sound device, it should appear as well in <code>cards</code>. If it doesn't check if it is correctly installed, and it's compatibility with ALSA
-  1. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
+      If you are using an USB pug-and-play sound device, it should appear as well in <code>cards</code>. If it doesn't check if it is correctly installed, and it's compatibility with ALSA
+      1. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
   to change your device to another USB device, copy <code>asound.conf</code> in another folder (somewhere SAFE!) and create a new one. In it type: </br>
   ```
     pcm.!default {
@@ -55,7 +55,6 @@ changhing the number of the card with the one you found in <code>cards</code>.
 _TODO: ADD MORE INFORMATION ON HOW SOUNDCARD ROUTING IS WORKING ON NANO, FIND DOCUMENTATION ON HOW TO CHANGE DEFAULT CARDS WITHOUT DESTROYNG EVERYTHING. MAYBE ADD TO THE REPO THE FILES._
 2. ALSA soundcard testing: <link>https://www.alsa-project.org/wiki/SoundcardTesting</link>
 3. Some Jetson Nano audio configuration documentation: <link>https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/asoc_driver.18.2.html</link>
-
 
 ## USE IT:
   1. Clone this repo
