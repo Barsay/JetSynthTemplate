@@ -20,22 +20,23 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
   2. open the cloned folder, type <code>./configure/code>
   3. type <code>cd build</code> (if build doesnt exist, type <code>mkdir build</code> )
   4. type <code>cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/lib/portAudio</code>.
-  5. type <code>sudo make </code> then <code> make install </code> 
+  5. type <code>sudo make </code> then <code> make install </code> </br>
+  #### Documentation:
   Documentation for troubleshooting: <link>http://portaudio.com/docs/v19-doxydocs/compile_cmake.html</link>, <link>http://portaudio.com/docs/v19-doxydocs/compile_linux.html</link>
-  General portaudio documentation  <link>http://portaudio.com/docs/v19-doxydocs/index.html</link>
+  General portaudio documentation  <link>http://portaudio.com/docs/v19-doxydocs/index.html</link></br>
   
   ### Set default soundcard + some info about NANO audio devices
-  If the direcotires or the folders don't appear, you have a problem with your ALSA installation.
+  If the following direcotires or files don't appear, you have a problem with your ALSA installation.
   1. type <code>cd /proc/asound</code>. The <code>cards</code> file contains informations about the soundcards that can be used by ALSA.
   2. type <code>cat cards</code> You will see all the devices that can be used. 
     The default devices are:
-      <code>[tegrahda       ]</code>, witch is the audio device connected with HDMI output 
-      <code>[tegrasndt210ref]</code> witch should be the device connected with I2S system (not sure about that....).
-      #### Enable a USB plug-and-play audio device, and understanding how soundcards are wired in the Nano
+      <code>[tegrahda       ]</code>, witch is the audio device connected with HDMI output </br>
+      <code>[tegrasndt210ref]</code> witch should be the device connected with I2S system (not sure about that....).</br>
+      #### Enable a USB plug-and-play audio device, and understanding how soundcards are wired in the Nano </br>
       WARNING: I messed up my asound.conf file doing this. When asound.conf doesn't work, ALSA doesn't work. I am currently trying to find a way to restore the files.
     If you are using an USB pug-and-play sound device, it should appear as well in <code>cards</code>. If it doesn't check if it is correctly installed, and it's compatibility with ALSA
-  3. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
-  to change your device to another USB device, copy <code>asound.conf</code> in another folder (somewhere SAFE!) and create a new one. In it type:
+  1. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
+  to change your device to another USB device, copy <code>asound.conf</code> in another folder (somewhere SAFE!) and create a new one. In it type: </br>
   <code>pcm.!default {
     type hw
     card 2
@@ -45,12 +46,15 @@ ctl.!default {
     type hw
     card 2
 }</code>
-changhing the number of the card with the one you found in <file>cards</file>.
+changhing the number of the card with the one you found in <code>cards</code>.
+
+
+#### Documentation:
+1. Asound.conf settings: (go to "Configuration" chapter)<link><https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture/link>
 _TODO: ADD MORE INFORMATION ON HOW SOUNDCARD ROUTING IS WORKING ON NANO, FIND DOCUMENTATION ON HOW TO CHANGE DEFAULT CARDS WITHOUT DESTROYNG EVERYTHING. MAYBE ADD TO THE REPO THE FILES._
-#### test the card
-go to a foder containing a audiofile.wav file
-type <code>aplay -vv audiofile.wav</code>
-it should play it. 
+2. ALSA soundcard testing: <link>https://www.alsa-project.org/wiki/SoundcardTesting</link>
+3. Some Jetson Nano audio configuration documentation: <link>https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/asoc_driver.18.2.html</link>
+
 
 ## USE IT:
   1. Clone this repo
