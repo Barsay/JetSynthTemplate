@@ -10,8 +10,8 @@ Should works on C programs as well just create a new <code>main.c</code>. Works 
 Disclaimer: the workflow could be messy, redundant or not efficient... But it works on a Jetson Nano and it should work anywhere else. So it's ok for now.
 ### ALSA
   1. Check if ALSA is installed on your system. If it isn't run <code>sudo apt install alsa-utils</code>
-  2. Check if ALSA works typing <code>aplay -vv somefile.wav </code>
-  ####Documentation:
+  2. Check if ALSA works typing <code>aplay -vv somefile.wav </code> </br>
+  #### Documentation:
   1. Alsa Documentation for troubleshooting: <link>https://www.alsa-project.org/wiki/SoundcardTesting#Rule_of_Thumb</link>
   2. General Alsa documentation: <link>https://www.alsa-project.org/wiki/Documentation</link>
   
