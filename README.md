@@ -37,7 +37,8 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
     If you are using an USB pug-and-play sound device, it should appear as well in <code>cards</code>. If it doesn't check if it is correctly installed, and it's compatibility with ALSA
   1. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
   to change your device to another USB device, copy <code>asound.conf</code> in another folder (somewhere SAFE!) and create a new one. In it type: </br>
-  <code>pcm.!default {
+  ```
+    pcm.!default {
     type hw
     card 2
 }
@@ -45,9 +46,9 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
 ctl.!default {
     type hw
     card 2
-}</code>
+}
+```
 changhing the number of the card with the one you found in <code>cards</code>.
-
 
 #### Documentation:
 1. Asound.conf settings: (go to "Configuration" chapter)<link><https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture/link>
