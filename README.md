@@ -11,8 +11,9 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
 ### ALSA
   1. Check if ALSA is installed on your system. If it isn't run <code>sudo apt install alsa-utils</code>
   2. Check if ALSA works typing <code>aplay -vv somefile.wav </code>
-  Alsa Documentation for troubleshooting: <link>https://www.alsa-project.org/wiki/SoundcardTesting#Rule_of_Thumb</link>
-  General Alsa documentation: <link>https://www.alsa-project.org/wiki/Documentation</link>
+  ####Documentation:
+  1. Alsa Documentation for troubleshooting: <link>https://www.alsa-project.org/wiki/SoundcardTesting#Rule_of_Thumb</link>
+  2. General Alsa documentation: <link>https://www.alsa-project.org/wiki/Documentation</link>
   
  ### PortAudio
   1. clone portAudio from <link>https://github.com/PortAudio/portaudio</link> into a folder
@@ -30,9 +31,27 @@ Disclaimer: the workflow could be messy, redundant or not efficient... But it wo
     The default devices are:
       <code>[tegrahda       ]</code>, witch is the audio device connected with HDMI output 
       <code>[tegrasndt210ref]</code> witch should be the device connected with I2S system (not sure about that....).
-    If you are using an USB pug-and-play sound device, it should appear as well in the options.
-  3. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO. *TODO*
-  
+      #### Enable a USB plug-and-play audio device, and understanding how soundcards are wired in the Nano
+      WARNING: I messed up my asound.conf file doing this. When asound.conf doesn't work, ALSA doesn't work. I am currently trying to find a way to restore the files.
+    If you are using an USB pug-and-play sound device, it should appear as well in <code>cards</code>. If it doesn't check if it is correctly installed, and it's compatibility with ALSA
+  3. type <code>cd /etc</code>. Here you can find a file called <code>asound.conf</code>. it contains the info for ALSA on how to use the soundcard system in the NANO.
+  to change your device to another USB device, copy <code>asound.conf</code> in another folder (somewhere SAFE!) and create a new one. In it type:
+  <code>pcm.!default {
+    type hw
+    card 2
+}
+
+ctl.!default {
+    type hw
+    card 2
+}</code>
+changhing the number of the card with the one you found in <file>cards</file>.
+_TODO: ADD MORE INFORMATION ON HOW SOUNDCARD ROUTING IS WORKING ON NANO, FIND DOCUMENTATION ON HOW TO CHANGE DEFAULT CARDS WITHOUT DESTROYNG EVERYTHING. MAYBE ADD TO THE REPO THE FILES._
+#### test the card
+go to a foder containing a audiofile.wav file
+type <code>aplay -vv audiofile.wav</code>
+it should play it. 
+
 ## USE IT:
   1. Clone this repo
   2. On line 2 in CMakeLists.txt change <code>-insert projectname here</code> with the name of your project
